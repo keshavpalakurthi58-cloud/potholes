@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Professional Polish Color Tokens */
+  
+  /* asphalt: warm editorial canvas, taupe borders & soft secondary sections */
+  --color-asphalt-50: #FAF8F3;
+  --color-asphalt-100: #F5F2EA;
+  --color-asphalt-200: #EAE7DC;
+  --color-asphalt-300: #D1CFB9;
+  --color-asphalt-400: #B8B49B;
+  --color-asphalt-500: #9E9A82;
+  --color-asphalt-600: #7D7964;
+  --color-asphalt-700: #5E5B4B;
+  --color-asphalt-800: #424035;
+  --color-asphalt-900: #282720;
+  --color-asphalt-950: #191814;
+
+  /* concrete: deep charcoal text & structural tones */
+  --color-concrete-50: #F5F2EA;
+  --color-concrete-100: #EAE7DC;
+  --color-concrete-200: #D1CFB9;
+  --color-concrete-300: #ADA99E;
+  --color-concrete-400: #8F8B81;
+  --color-concrete-500: #706D64;
+  --color-concrete-600: #55524B;
+  --color-concrete-700: #42403B;
+  --color-concrete-800: #33322E;
+  --color-concrete-900: #262624;
+
+  /* safety: vivid indigo civic management accent */
+  --color-safety-50: #EEF2FF;
+  --color-safety-100: #E0E7FF;
+  --color-safety-200: #C7D2FE;
+  --color-safety-300: #A5B4FC;
+  --color-safety-400: #818CF8;
+  --color-safety-500: #4F46E5;
+  --color-safety-600: #4338CA;
+  --color-safety-700: #3730A3;
+  --color-safety-800: #312E81;
+  --color-safety-900: #1E1B4B;
+
+  /* caution: warm amber / warning / cost */
+  --color-caution-50: #FFFBEB;
+  --color-caution-100: #FEF3C7;
+  --color-caution-200: #FDE68A;
+  --color-caution-300: #FCD34D;
+  --color-caution-400: #FBBF24;
+  --color-caution-500: #D97706;
+  --color-caution-600: #B45309;
+  --color-caution-700: #92400E;
+  --color-caution-800: #78350F;
+  --color-caution-900: #451A03;
+
+  /* signal: emerald / repaired / good health */
+  --color-signal-50: #ECFDF5;
+  --color-signal-100: #D1FAE5;
+  --color-signal-200: #A7F3D0;
+  --color-signal-300: #6EE7B7;
+  --color-signal-400: #34D399;
+  --color-signal-500: #059669;
+  --color-signal-600: #047857;
+  --color-signal-700: #065F46;
+  --color-signal-800: #064E3B;
+  --color-signal-900: #022C22;
+
+  /* hazard: crimson red / critical severity / urgent alert */
+  --color-hazard-50: #FEF2F2;
+  --color-hazard-100: #FEE2E2;
+  --color-hazard-200: #FECACA;
+  --color-hazard-300: #FCA5A5;
+  --color-hazard-400: #F87171;
+  --color-hazard-500: #DC2626;
+  --color-hazard-600: #B91C1C;
+  --color-hazard-700: #991B1B;
+  --color-hazard-800: #7F1D1D;
+  --color-hazard-900: #450A0A;
+
+  /* route: sky blue / navigation / GPS geo accents */
+  --color-route-50: #F0F9FF;
+  --color-route-100: #E0F2FE;
+  --color-route-200: #BAE6FD;
+  --color-route-300: #7DD3FC;
+  --color-route-400: #38BDF8;
+  --color-route-500: #0284C7;
+  --color-route-600: #0369A1;
+  --color-route-700: #075985;
+  --color-route-800: #0C4A6E;
+  --color-route-900: #082F49;
+
+  /* orange: high severity indicator */
+  --color-orange-50: #FFF7ED;
+  --color-orange-100: #FFEDD5;
+  --color-orange-200: #FED7AA;
+  --color-orange-300: #FDBA74;
+  --color-orange-400: #FB923C;
+  --color-orange-500: #EA580C;
+  --color-orange-600: #C2410C;
+  --color-orange-700: #9A3412;
+  --color-orange-800: #7C2D12;
+  --color-orange-900: #431407;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-asphalt-300);
+  }
+
+  body {
+    background-color: var(--color-asphalt-100);
+    color: var(--color-concrete-900);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-concrete-900);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* 3D Pressed Button Utilities */
+.btn-3d {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn-3d-safety {
+  background-color: #4F46E5;
+  color: #ffffff;
+  box-shadow: 0 4px 0 0 #3730A3;
+  border: 1px solid #4338CA;
+}
+.btn-3d-safety:hover:not(:disabled) {
+  background-color: #4338CA;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #3730A3;
+}
+.btn-3d-safety:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #3730A3 !important;
+}
+
+.btn-3d-concrete {
+  background-color: #262624;
+  color: #ffffff;
+  box-shadow: 0 4px 0 0 #191814;
+  border: 1px solid #191814;
+}
+.btn-3d-concrete:hover:not(:disabled) {
+  background-color: #33322E;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #191814;
+}
+.btn-3d-concrete:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #191814 !important;
+}
+
+.btn-3d-asphalt {
+  background-color: #FFFFFF;
+  color: #262624;
+  box-shadow: 0 4px 0 0 #D1CFB9;
+  border: 1px solid #D1CFB9;
+}
+.btn-3d-asphalt:hover:not(:disabled) {
+  background-color: #F2F0E9;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #D1CFB9;
+}
+.btn-3d-asphalt:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #D1CFB9 !important;
+}
+
+.btn-3d-hazard {
+  background-color: #DC2626;
+  color: #ffffff;
+  box-shadow: 0 4px 0 0 #991B1B;
+  border: 1px solid #B91C1C;
+}
+.btn-3d-hazard:hover:not(:disabled) {
+  background-color: #B91C1C;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #991B1B;
+}
+.btn-3d-hazard:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #991B1B !important;
+}
+
+.btn-3d-signal {
+  background-color: #059669;
+  color: #ffffff;
+  box-shadow: 0 4px 0 0 #064E3B;
+  border: 1px solid #047857;
+}
+.btn-3d-signal:hover:not(:disabled) {
+  background-color: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 #064E3B;
+}
+.btn-3d-signal:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 #064E3B !important;
+}
+
+/* 3D Road Scene Styling */
+.road-perspective-wrapper {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.road-slab {
+  transform: rotateX(28deg) rotateZ(-3deg);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+  background: linear-gradient(180deg, #374151 0%, #1F2937 40%, #111827 100%);
+  box-shadow: 
+    0 30px 60px -12px rgba(27, 20, 15, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 12px 0 0 #0f141c;
+}
+
+.pothole-crater {
+  background: radial-gradient(circle at 45% 45%, #050608 0%, #11151d 40%, #1e2430 75%, #374151 100%);
+  box-shadow: 
+    inset 4px 6px 12px 2px rgba(0,0,0,0.95),
+    inset -3px -3px 8px 1px rgba(255,255,255,0.08),
+    0 0 20px 2px rgba(239, 68, 68, 0.3);
+}
+
+/* Striped danger meter */
+.striped-bar {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.12) 10px,
+    rgba(0, 0, 0, 0.12) 20px
+  );
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotateX(28deg) rotateZ(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotateX(29deg) rotateZ(-2.5deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px 1px rgba(239, 68, 68, 0.35), inset 4px 6px 12px 2px rgba(0,0,0,0.95);
+  }
+  50% {
+    box-shadow: 0 0 28px 6px rgba(239, 68, 68, 0.65), inset 4px 6px 12px 2px rgba(0,0,0,0.95);
+  }
+}
+
+@keyframes sonarWave {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.animate-road-float {
+  animation: floatGentle 7s ease-in-out infinite;
+}
+
+.animate-crater-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-sonar {
+  animation: sonarWave 2s cubic-bezier(0.1, 0.7, 0.3, 1) infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-road-float, .animate-crater-glow, .animate-sonar {
+    animation: none !important;
+  }
+}
